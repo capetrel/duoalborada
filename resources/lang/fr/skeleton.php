@@ -10,4 +10,5 @@ return [
     */
 
     'Home'   => 'Présentation',
+    'Dashboard'   => 'Tableau de bord',
 ];

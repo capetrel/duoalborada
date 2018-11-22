@@ -1,0 +1,675 @@
+.item-menu a, span {
+  font-family: Amerika Sans, sans-serif;
+  font-size: 26px;
+  padding: 0 2px;
+  color: #140D00;
+  text-align: center;
+  text-decoration: none;
+}
+
+.item-menu a:hover, .item-menu a:focus .item-menu a:active {
+  background-color: #833e1e;
+  color: #e0bd9f;
+  border-radius: 5px;
+}
+
+@font-face {
+  font-family: quattrocento_sansbold;
+  src: url("../fonts/quattrocentosans-bold-webfont.eot");
+  src: url("../fonts/quattrocentosans-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/quattrocentosans-bold-webfont.woff2") format("woff2"), url("../fonts/quattrocentosans-bold-webfont.woff") format("woff"), url("../fonts/quattrocentosans-bold-webfont.ttf") format("truetype"), url("../fonts/quattrocentosans-bold-webfont.svg#quattrocento_sansbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: quattrocento_sansbold_italic;
+  src: url("../fonts/quattrocentosans-bolditalic-webfont.eot");
+  src: url("../fonts/quattrocentosans-bolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/quattrocentosans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/quattrocentosans-bolditalic-webfont.woff") format("woff"), url("../fonts/quattrocentosans-bolditalic-webfont.ttf") format("truetype"), url("../fonts/quattrocentosans-bolditalic-webfont.svg#quattrocento_sansbold_italic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: quattrocento_sansitalic;
+  src: url("../fonts/quattrocentosans-italic-webfont.eot");
+  src: url("../fonts/quattrocentosans-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/quattrocentosans-italic-webfont.woff2") format("woff2"), url("../fonts/quattrocentosans-italic-webfont.woff") format("woff"), url("../fonts/quattrocentosans-italic-webfont.ttf") format("truetype"), url("../fonts/quattrocentosans-italic-webfont.svg#quattrocento_sansitalic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: quattrocento_sansregular;
+  src: url("../fonts/quattrocentosans-regular-webfont.eot");
+  src: url("../fonts/quattrocentosans-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/quattrocentosans-regular-webfont.woff2") format("woff2"), url("../fonts/quattrocentosans-regular-webfont.woff") format("woff"), url("../fonts/quattrocentosans-regular-webfont.ttf") format("truetype"), url("../fonts/quattrocentosans-regular-webfont.svg#quattrocento_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: amerika_sansregular;
+  src: url("../fonts/AMERSN__-webfont.eot");
+  src: url("../fonts/AMERSN__-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/AMERSN__-webfont.woff") format("woff"), url("../fonts/AMERSN__-webfont.ttf") format("truetype"), url("../fonts/AMERSN__-webfont.svg#amerika_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: amerikaregular;
+  src: url("../fonts/AMERIKA_-webfont.eot");
+  src: url("../fonts/AMERIKA_-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/AMERIKA_-webfont.woff") format("woff"), url("../fonts/AMERIKA_-webfont.ttf") format("truetype"), url("../fonts/AMERIKA_-webfont.svg#amerikaregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: amerika_alternatesregular;
+  src: url("../fonts/AMERIKAA-webfont.eot");
+  src: url("../fonts/AMERIKAA-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/AMERIKAA-webfont.woff") format("woff"), url("../fonts/AMERIKAA-webfont.ttf") format("truetype"), url("../fonts/AMERIKAA-webfont.svg#amerika_alternatesregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+nav {
+  width: 70vw;
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+}
+
+article {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 23vh;
+}
+
+h1 {
+  margin-bottom: .5rem;
+  font-family: inherit;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.wrapper {
+  background: url("../svg/fond.svg") no-repeat top right fixed;
+  background-size: cover;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#main {
+  -webkit-transition: margin-left 0.5s;
+  transition: margin-left 0.5s;
+  width: 65vw;
+}
+
+.bg-menu {
+  background: url("../img/guitare-duoalborada-ld.png") no-repeat top left;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  width: 35%;
+  height: 100%;
+  margin: 0;
+  padding: 59vh 0 0 6.8vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.item-menu {
+  height: 22vh;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.item-menu-active {
+  background-color: #833e1e;
+  color: #e0bd9f;
+  border-radius: 5px;
+}
+
+.open-slide {
+  background-color: #833e1e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 5px;
+  width: 12vw;
+}
+
+.open-slide > a {
+  z-index: 10;
+}
+
+.side-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #1d1e1f;
+  opacity: 0.9;
+  overflow-x: hidden;
+  padding-top: 30vh;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.side-nav .item-menu {
+  height: 22vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.side-nav a {
+  font-family: Amerika Sans, sans-serif;
+  font-size: 26px;
+  padding: 0 2px 0 4px;
+  color: #ffe8e4;
+  text-align: left;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.side-nav .close-btn {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  font-size: 36px;
+  width: 50px;
+  text-align: center;
+}
+
+.custom-title {
+  color: #4d4d4d;
+  font-family: Amerika Sans, sans-serif;
+  font-size: 48px;
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.logo {
+  width: 10.2vw;
+}
+
+.logo img {
+  width: 11.3vw;
+}
+
+.around-title h2 {
+  display: inline-block;
+  color: #e0bd9f;
+  background-color: #833e1e;
+  border-radius: 7px;
+  padding: 2px 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.custom-content {
+  overflow: hidden;
+  width: 61vw;
+  height: 75vh;
+  padding: 5vh 7vw 0 5vw;
+  font-family: quattrocento_sansregular, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #4d4d4d;
+}
+
+.custom-content p {
+  font-family: quattrocento_sansregular, sans-serif;
+  font-weight: normal;
+}
+
+.custom-content blockquote {
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+.custom-content strong {
+  font-size: 20px;
+  color: #140D00;
+}
+
+.custom-button {
+  color: #e0bd9f;
+  background-color: #833e1e;
+  border-radius: 7px;
+  padding: 2px 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.custom-button:hover {
+  color: #833e1e;
+  background-color: transparent;
+}
+
+.custom-button:active {
+  color: #833e1e;
+  background-color: transparent;
+}
+
+.dispatch-concerts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.concert {
+  width: 24%;
+  padding: 2px;
+  margin: 2px;
+  text-overflow: ellipsis;
+  -webkit-hyphens: manual;
+      -ms-hyphens: manual;
+          hyphens: manual;
+}
+
+.custom-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.custom-links a {
+  font-family: quattrocento_sansregular, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4d4d4d;
+  text-decoration: none;
+  border-bottom: #833e1e 1px solid;
+  margin-bottom: 5px;
+}
+
+.custom-links a:hover a:focus {
+  color: #833e1e;
+}
+
+.footer {
+  width: 27%;
+  margin: 7em 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.footer a {
+  font-family: quattrocento_sansregular, sans-serif;
+  font-size: 14px;
+  color: #4d4d4d;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (max-width: 1440px) {
+  nav {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+  }
+  article {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+  }
+  .bg-menu {
+    background: url("../img/guitare-duoalborada-ld.png") no-repeat top right;
+    background-size: cover;
+    padding: 52vh 0 0 3.4vw;
+  }
+  .footer {
+    width: 32%;
+  }
+}
+
+@media (max-width: 1366px) {
+  nav {
+    width: 65vw;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  article {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .bg-menu {
+    background: url("../img/guitare-duoalborada-ipad.png") no-repeat top right;
+    min-height: 100vh;
+    background-size: cover;
+    padding: 49vh 0 0 1.2vw;
+  }
+  .footer {
+    width: 36%;
+  }
+}
+
+@media (max-width: 1280px) {
+  nav {
+    width: 65vw;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  article {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .bg-menu {
+    background: url("../img/guitare-duoalborada-ld.png") no-repeat top right;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 52.5vh 0 0 3vw;
+  }
+  .footer {
+    width: 35%;
+  }
+}
+
+@media (max-width: 1024px) {
+  nav {
+    width: 65vw;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  article {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .bg-menu {
+    background: url("../img/guitare-duoalborada-rond-seul.png") no-repeat top left;
+    background-size: 25vw;
+    min-height: 100vh;
+    padding: 52.5vh 0 0 3vw;
+  }
+  .custom-content {
+    padding: 4vh 7vw 0 5vw;
+  }
+  .logo {
+    margin: 1vh 2vw 0 0;
+  }
+  .logo img {
+    width: 11vw;
+  }
+  .footer {
+    width: 45%;
+  }
+}
+
+@media (max-width: 740px) {
+  nav {
+    width: 12vw;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  article {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  header {
+    height: 29vh;
+  }
+  .bg-menu {
+    background: #833e1e;
+    width: 12vw;
+  }
+  #menuToggle {
+    display: block;
+    position: absolute;
+    top: 2vh;
+    left: 1.5vw;
+    z-index: 20;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
+  }
+  #menuToggle input {
+    display: block;
+    width: 8vw;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 15;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  #menuToggle span {
+    display: block;
+    width: 40px;
+    height: 4px;
+    margin-bottom: 7px;
+    position: relative;
+    background: #ffe8e4;
+    border-radius: 3px;
+    z-index: 10;
+    -webkit-transform-origin: 4px 0px;
+            transform-origin: 4px 0px;
+    -webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  #menuToggle span:first-child {
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+  #menuToggle span:nth-last-child(2) {
+    -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+  }
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    -webkit-transform: rotate(45deg) translate(-3px, -1px);
+            transform: rotate(45deg) translate(-3px, -1px);
+    background: #ffe8e4;
+  }
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+            transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    opacity: 1;
+    -webkit-transform: rotate(-45deg) translate(0, -1px);
+            transform: rotate(-45deg) translate(0, -1px);
+  }
+  #menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 0;
+    padding: 50px;
+    padding-top: 125px;
+    right: 60px;
+    z-index: 5;
+    background: #1d1e1f;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    -webkit-transform: translate(0%, 0);
+            transform: translate(0%, 0);
+    -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.5, 0.2, 0.05, 1);
+    transition: -webkit-transform 0.5s cubic-bezier(0.5, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.5, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.5, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.5, 0.2, 0.05, 1);
+  }
+  #menu a {
+    font-family: Amerika Sans, sans-serif;
+    font-size: 26px;
+    padding: 0 2px 0 4px;
+    color: #ffe8e4;
+    text-align: left;
+    text-decoration: none;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  #menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+  #menuToggle input:checked ~ ul {
+    -webkit-transform: translateX(300px);
+            transform: translateX(300px);
+    opacity: 0.9;
+  }
+  .custom-title {
+    width: 61vw;
+  }
+  .logo {
+    margin: 1vh 2vw 0 0;
+  }
+  .logo img {
+    width: 22vw;
+  }
+  .custom-content {
+    width: 92%;
+    padding: 4vh 9vw 0 5vw;
+  }
+  .item-menu {
+    display: none;
+  }
+  .footer {
+    display: none;
+  }
+}
+
+@media (min-width: 740px) {
+  .open-slide {
+    display: none;
+  }
+}
+
+@media (max-width: 415px) {
+  .logo {
+    width: 30vw;
+  }
+  .logo img {
+    width: 30vw;
+  }
+}

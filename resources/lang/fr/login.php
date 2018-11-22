@@ -18,4 +18,5 @@ return [
     'Remember Me' => 'Se souvenir de moi',
     'Forgot Your Password?' => 'Mot de passe perdu ?',
     'Toggle navigation' => 'Déplier le menu',
+    'You are logged in!' => 'Vous êtes connecté !',
 ];

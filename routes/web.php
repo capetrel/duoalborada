@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
+
+Route::get('/presentation', 'WelcomeController@index');
+
+// route qui récupère les traductions
+Route::get('langage', 'PagesController@language');
 
 Auth::routes(['register' => false]);
 

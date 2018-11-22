@@ -11,5 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/duoalborada.scss', 'public/css')
+    .sass('resources/sass/master.scss', 'public/css')
+    .options({
+        processCssUrls: false
+    })
+    .js('resources/js/master.js', 'public/js')
+    .js('resources/js/duoalborada.js', 'public/js')
+    .mix.browserSync('duoalborada.test');
+
