@@ -9,6 +9,6 @@ return [
     |
     */
 
-    'Home'   => 'Présentation',
+    'Home'   => 'Administration',
     'Dashboard'   => 'Tableau de bord',
 ];

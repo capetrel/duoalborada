@@ -292,6 +292,10 @@ h1 {
   text-align: center;
 }
 
+.old {
+  opacity: 0.4;
+}
+
 .custom-content {
   overflow: hidden;
   width: 61vw;
