@@ -12,6 +12,7 @@ return [
     'E-Mail Address'   => 'Email',
     'Password' => 'Mot de passe',
     'Login' => 'Se connecter',
+    'Master' => 'Maître',
     'Enter your credentials' => 'Saisissez vos identifiants',
     'Logout' => 'Se déconnecter',
     'Register' => 'S\'inscrire',

@@ -12,9 +12,9 @@
         @endforeach
     </div>
 
-    <div class="footer">
+    <ul class="footer">
         @include('blocks.bottomnav')
-    </div>
+    </ul>
 
 </div>
 

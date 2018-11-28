@@ -1,0 +1,23 @@
+$albo_orange: #F7B234;
+$albo_red: #E4342D;
+
+.btn-slider{
+    border: none;
+    padding: 10px 20px 10px 20px;
+    background-color: $albo_orange;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-slider:hover{
+    background-color: $albo_red;
+
+}
+
+.btn-center{
+    text-align: center;
+}
+
+.slide{
+    margin: 0 5px 0 5px;
+}

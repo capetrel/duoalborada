@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <meta name="description" content="Duo de guitare classique espagnole en région centre, le Duo Alborada." />
@@ -31,9 +32,7 @@
     <link rel="stylesheet" href="{{ asset('css/vendor/OverlayScrollbars.min.css') }}">
     @stack('css')
 
-    @foreach($head_title as $title)
-        <title> {{ $title->head_title }}</title>
-    @endforeach
+    <title>Erreur 500</title>
 
 </head>
 <body>
@@ -50,12 +49,24 @@
 
         <header>
 
-            @include('blocks.header')
+            <div class="custom-title">
+
+                <h1>
+                    Erreur 500
+                </h1>
+
+            </div>
+            <div class="logo">
+                <img class="img-responsive" src="{{ asset('svg/logo-duoalborada.svg') }}" alt="Logo du Duo Alborada">
+            </div>
 
         </header>
 
-        <div class="custom-content" id="custom-scroll">
-            @yield('content')
+        <div class="custom-content">
+            <p><strong>Erreur interne du serveur.</strong><a href="{{ url('contact') }}"> Contactez l'administrateur</a></p>
+            @if($err)
+                {{ $err }}
+            @endif
         </div>
 
     </article>

@@ -1,6 +1,6 @@
 <div class="dispatch-concerts">
 
-    <a class="btn btn-primary" href="/alborada/public/home/{{$content->url_name}}/add/concert" title="Ajouter un concert">
+    <a class="btn btn-primary" href="{{ url( 'home/' . $content->url_name . "/add/concert") }}" title="Ajouter un concert">
         Ajouter un concert
     </a>
     ,&nbsp;ou modifier un concert existant ci-dessous :

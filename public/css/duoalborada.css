@@ -323,21 +323,23 @@ h1 {
   color: #140D00;
 }
 
-.custom-button {
+.albo-button {
   color: #e0bd9f;
   background-color: #833e1e;
+  border: none;
   border-radius: 7px;
-  padding: 2px 5px;
+  padding: 10px 20px;
   font-weight: bold;
   text-align: center;
+  cursor: pointer;
 }
 
-.custom-button:hover {
+.albo-button:hover {
   color: #833e1e;
-  background-color: transparent;
+  background-color: #e0bd9f;
 }
 
-.custom-button:active {
+.albo-button:active {
   color: #833e1e;
   background-color: transparent;
 }
@@ -387,13 +389,84 @@ h1 {
   margin-bottom: 5px;
 }
 
-.custom-links a:hover a:focus {
+.custom-links a:hover {
   color: #833e1e;
+  background-color: #e0bd9f;
+}
+
+textarea.input-control {
+  height: auto;
+}
+
+.field-group {
+  margin-bottom: 1rem;
+}
+
+.input-control {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1d1e1f;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #e0bd9f;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.input-control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.input-control:focus {
+  color: #140D00;
+  background-color: white;
+  border-color: #833e1e;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 200, 200, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(255, 200, 200, 0.25);
+}
+
+.input-control::-webkit-input-placeholder {
+  color: #4d4d4d;
+  opacity: 1;
+}
+
+.input-control:-ms-input-placeholder {
+  color: #4d4d4d;
+  opacity: 1;
+}
+
+.input-control::-ms-input-placeholder {
+  color: #4d4d4d;
+  opacity: 1;
+}
+
+.input-control::placeholder {
+  color: #4d4d4d;
+  opacity: 1;
+}
+
+select.input-control:focus::-ms-value {
+  color: #4d4d4d;
+  background-color: white;
+}
+
+select.input-control[size], select.input-control[multiple] {
+  height: auto;
 }
 
 .footer {
   width: 27%;
   margin: 7em 0 0;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -411,6 +484,11 @@ h1 {
   color: #4d4d4d;
   text-align: center;
   text-decoration: none;
+}
+
+.list-unstyled {
+  list-style-type: none;
+  margin-left: 5px;
 }
 
 @media (max-width: 1440px) {

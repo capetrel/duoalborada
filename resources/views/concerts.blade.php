@@ -1,5 +1,8 @@
 @extends('layouts.duoalborada')
-
+<?php
+// TODO faire mieux
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+?>
 @section('content')
 
     @foreach($text as $txt)

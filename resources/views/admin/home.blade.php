@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
     <div class="container">
         <div class="row">
 
@@ -18,7 +19,6 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header"><h4>Tableau de bord</h4></div>
-
                     <div class="card-body">
 
                         @include('admin.blocks.session')
@@ -37,6 +37,8 @@
 
                     </div>
                 </div>
+                <br>
+                <hr>
             </div>
 
         </div>

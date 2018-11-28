@@ -2,5 +2,7 @@
     "/js/master.js": "/js/master.js",
     "/css/duoalborada.css": "/css/duoalborada.css",
     "/css/master.css": "/css/master.css",
-    "/js/duoalborada.js": "/js/duoalborada.js"
+    "/css/slider.css": "/css/slider.css",
+    "/js/duoalborada.js": "/js/duoalborada.js",
+    "/js/slider.js": "/js/slider.js"
 }

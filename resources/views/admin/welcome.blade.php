@@ -5,18 +5,21 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4">
-                <ul class="list-unstyled">
-                    @include('admin.blocks.navleft')
-                </ul>
-            </div>
-
-            <div class="col-md-8">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Administer les textes</h4>
+                        Éléments du site
                     </div>
+                    <ul class="list-group list-group-flush">
+                        @include('admin.blocks.navleft')
+                    </ul>
+                </div>
+            </div>
 
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header"><h4>Administer les textes</h4></div>
+                    <hr>
                     <div class="card-body">
 
                         @include('blocks.messages')
@@ -30,7 +33,7 @@
                             </p>
                         @endforeach
 
-                        <a class="btn btn-primary" href="#">
+                        <a class="btn btn-primary" href="{{ url( 'home/' . $content->url_name . "/edit") }}">
                             Modifier ces textes :
                         </a>
 
@@ -49,6 +52,14 @@
 
                             @include('admin.concerts')
 
+                        @elseif( url()->current() === url('home/medias'))
+
+                            @include('admin.medias')
+
+                        @elseif( url()->current() === url('home/liens'))
+
+                            @include('admin.liens')
+
                         @else
 
                             <p>Il n'y a pas de contenu pour cette page.</p>
@@ -57,7 +68,6 @@
 
                     </div>
                 </div>
-
             </div>
 
         </div>

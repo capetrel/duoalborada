@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Concert;
-use App\Http\Page;
+use App\Lien;
+use App\Page;
 use App\Http\Request\PagesFormRequest;
+use App\Media;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -40,11 +41,11 @@ class HomeController extends Controller
 
         $page_content = Page::getContent($pages);
         $concerts = Concert::concertsByYear();
-        //$links = Lien::getLinks();
+        $links = Lien::getLinks();
 
-        //$media_from_category = Media::getMediasFromCategory();
+        $media_from_category = Media::getMediasFromCategory();
 
-        return view('admin.welcome', compact( 'page_content', 'concerts'));
+        return view('admin.welcome', compact( 'page_content', 'concerts', 'links', 'media_from_category'));
 
     }
 

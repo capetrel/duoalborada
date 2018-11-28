@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Concert;
-use App\Http\Page;
+use App\Page;
 use App\Http\Request\ConcertFormRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Session;
@@ -40,7 +40,7 @@ class ConcertsController extends Controller
 
             Session::flash('message', 'Le concert a bien été mis à jour');
 
-            return view('auth.edit.concert', compact( 'concert'));
+            return view('admin.edit.concert', compact( 'concert'));
 
         }
         catch(ModelNotFoundException $err){
@@ -51,7 +51,7 @@ class ConcertsController extends Controller
     public function form()
     {
 
-        return view('auth.add.concert');
+        return view('admin.add.concert');
     }
 
     public function add(ConcertFormRequest $request, $page)

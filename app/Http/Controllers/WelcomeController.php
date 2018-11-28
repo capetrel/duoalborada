@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Page;
+use App\Page;
 
 class WelcomeController extends Controller
 {

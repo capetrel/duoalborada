@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Http\Page;
+use App\Page;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 

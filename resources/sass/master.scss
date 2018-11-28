@@ -1,11 +1,64 @@
+// Variables
+@import 'urls';
+
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import 'fonts';
 
 // Variables
 @import 'admin-variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@font-face {
+    font-family: $font_0;
+    src: $url_0;
+    src: $url_1 format('embedded-opentype'), $url_2 format('woff2'), $url_3 format('woff'), $url_4 format('truetype'), $url_5 format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: $font_1;
+    src: $url_6;
+    src: $url_7 format('embedded-opentype'), $url_8 format('woff2'), $url_9 format('woff'), $url_10 format('truetype'), $url_11 format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: $font_2;
+    src: $url_12;
+    src: $url_13 format('embedded-opentype'), $url_14 format('woff2'), $url_15 format('woff'), $url_16 format('truetype'), $url_17 format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: $font_3;
+    src: $url_18;
+    src: $url_19 format('embedded-opentype'), $url_20 format('woff2'), $url_21 format('woff'), $url_22 format('truetype'), $url_23 format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: $font_4;
+    src: $url_24;
+    src: $url_25 format('embedded-opentype'), $url_26 format('woff'), $url_27 format('truetype'), $url_28 format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: $font_5;
+    src: $url_29;
+    src: $url_30 format('embedded-opentype'), $url_31 format('woff'), $url_32 format('truetype'), $url_33 format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: $font_6;
+    src: $url_34;
+    src: $url_35 format('embedded-opentype'), $url_36 format('woff'), $url_37 format('truetype'), $url_38 format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .navbar-laravel {
   background-color: #fff;

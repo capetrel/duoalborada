@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Page;
+use App\Page;
 
 class PagesController extends Controller
 {
@@ -19,6 +19,14 @@ class PagesController extends Controller
         $head_title = Page::currentPageTitle('mentions');
 
         return view('mentions', compact('text', 'head_title'));
+    }
+
+    public function sitemap()
+    {
+        $text = Page::choosePageText('sitemap');
+        $head_title = Page::currentPageTitle('sitemap');
+
+        return view('sitemap', compact('text', 'head_title'))->with(trans('sitemap'));
     }
 
     /**

@@ -13692,19 +13692,13 @@ module.exports = Cancel;
 
 __webpack_require__(11);
 __webpack_require__(36);
-module.exports = __webpack_require__(37);
+__webpack_require__(37);
+module.exports = __webpack_require__(38);
 
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 
 __webpack_require__(12);
 
@@ -35948,6 +35942,12 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 37 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

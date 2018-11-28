@@ -33,13 +33,13 @@
                 {!! Form::open(['url' => url()->current().'/del/link/'.$link->id,'method' => 'post']) !!}
                 {{ csrf_field() }}
                     <button type="submit" class="btn btn-danger" title="supprimer le lien">
-                        <i class="fa fa-times-circle"></i>
+                        <i class="oi oi-delete"></i>
                     </button>
                     {!! Form::close() !!}
                 </td>
                 <td>
                     <a class="btn btn-info" href="{{url()->current()}}/edit-link/{{$link->id}}" title="modifier le lien">
-                        <span class="fa fa-pencil" aria-hidden="true" title="modifier le lien"></span>
+                        <span class="oi oi-pencil" aria-hidden="true" title="modifier le lien"></span>
                     </a>
                 </td>
             </tr>
