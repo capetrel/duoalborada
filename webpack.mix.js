@@ -14,11 +14,15 @@ const mix = require('laravel-mix');
 mix.sass('resources/sass/duoalborada.scss', 'public/css')
     .sass('resources/sass/master.scss', 'public/css')
     .sass('resources/sass/slider.scss', 'public/css')
+    .sass('resources/sass/datepicker.scss', 'public/css')
+    .sass('resources/sass/wysiwyg.scss', 'public/css')
     .options({
         processCssUrls: false
     })
     .js('resources/js/master.js', 'public/js')
     .js('resources/js/duoalborada.js', 'public/js')
     .js('resources/js/slider.js', 'public/js')
+    .js('resources/js/datepicker.js', 'public/js')
+    .js('resources/js/wysiwyg.js', 'public/js')
     .mix.browserSync('duoalborada.test');
 

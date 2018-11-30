@@ -1,3 +1,6 @@
+<?php
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+?>
 <div class="dispatch-concerts">
 
     <a class="btn btn-primary" href="{{ url( 'home/' . $content->url_name . "/add/concert") }}" title="Ajouter un concert">

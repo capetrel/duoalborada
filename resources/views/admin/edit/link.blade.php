@@ -33,7 +33,7 @@
                             {{ Form::hidden('id', $item->id) }}
 
                             <div class="form-group">
-                                {!! Form::label('Nom du lien') !!}
+                                {!! Form::label('link_name', 'Nom du lien') !!}
                                 <em> ( Obligatoire ) </em>
                                 {!! Form::text('link_name', $item->link_name, [
                                     'required',
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Adresse du lien') !!}
+                                {!! Form::label('link', 'Adresse du lien') !!}
                                 <em> ( Obligatoire ) </em>
                                 {!! Form::text('link', $item->link, [
                                     'required',
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Titre du lien') !!}
+                                {!! Form::label('link_title', 'Titre du lien') !!}
                                 <em> ( Obligatoire ) </em>
                                 {!! Form::text('link_title', $item->link_title, [
                                     'required',
@@ -64,7 +64,7 @@
 
                             <div class="form-group">
                                 {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ asset('home/liens') }}">Annuler</a>
+                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ url('home/liens') }}">Annuler</a>
                             </div>
 
                         @endforeach

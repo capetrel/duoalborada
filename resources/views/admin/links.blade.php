@@ -1,3 +1,9 @@
+<a class="btn btn-primary" href="{{ url( 'home/' . $content->url_name . "/add/link") }}" title="Ajouter un concert">
+    Ajouter un lien
+</a>
+,&nbsp;ou modifier un lien existant ci-dessous :
+<br>
+<br>
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
@@ -46,13 +52,6 @@
 
         @endforeach
         </tbody>
-        <tfoot>
-        <tr>
-            <td colspan="5">
-                <a href="{{url()->current()}}/add/link" class="btn btn-primary" title="Ajouter un lien">Ajouter un lien</a>
-            </td>
-        </tr>
-        </tfoot>
     </table>
 
 

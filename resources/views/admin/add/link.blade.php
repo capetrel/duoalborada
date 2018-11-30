@@ -24,12 +24,10 @@
 
                         @include('blocks.errors')
 
-                        @include('blocks.messages')
-
                         {!! Form::open(['url' => url()->current().'/save','method' => 'post']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('Nom du lien') !!}<em> ( Obligatoire ) </em>
+                            {!! Form::label('link_name', 'Nom du lien') !!}<em> ( Obligatoire ) </em>
                             {!! Form::text('link_name', false, [
                                 'required',
                                 'class'=>'form-control'
@@ -38,7 +36,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('Adresse du lien') !!}<em> ( Obligatoire ) </em>
+                            {!! Form::label('link', 'Adresse du lien') !!}<em> ( Obligatoire ) </em>
                             {!! Form::text('link', false,[
                                 'required',
                                 'class'=>'form-control'
@@ -47,7 +45,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('Titre du lien') !!}<em> ( Obligatoire ) </em>
+                            {!! Form::label('link_title', 'Titre du lien') !!}<em> ( Obligatoire ) </em>
                             {!! Form::text('link_title', false, [
                                 'required',
                                 'class'=>'form-control'
@@ -57,7 +55,7 @@
 
                         <div class="form-group">
                             {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                            <a class="btn btn-secondary" title="retour à la page précédente" href="{{ asset('/home/links') }}">Annuler</a>
+                            <a class="btn btn-secondary" title="retour à la page précédente" href="{{ url('/home/liens') }}">Annuler</a>
                         </div>
 
                         {!! Form::close() !!}

@@ -1,3 +1,6 @@
+<?php
+setlocale(LC_TIME, 'fr_FR.utf8','fra');
+?>
 @foreach($media_from_category as $cat=>$media)
     <div>
         <h2>{{ $cat }}</h2>
@@ -37,7 +40,7 @@
                         {!! $media->media_description !!}
                     </td>
                     <td>
-                        {{ $media->media_date }}
+                        {{ $media->media_date ? Carbon\Carbon::parse($media->media_date)->formatLocalized('%a %d %b %Y') : '' }}
                     </td>
                     <td>
                         <button class="btn btn-danger">
@@ -56,7 +59,7 @@
             <tfoot>
                 <tr>
                     <td colspan="6">
-                        <button class="btn btn-primary" title="Ajouter dans {{$cat}}">Ajouter dans {{ $cat }}</button>
+                        <a href="{{ url()->current().'/add/media' }}" class="btn btn-primary" title="Ajouter dans {{$cat}}">Ajouter dans {{ $cat }}</a>
                     </td>
                 </tr>
             </tfoot>

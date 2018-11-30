@@ -15,7 +15,7 @@
     @include('blocks.messages')
 
     <div class="field-group">
-        {!! Form::label('Votre Nom') !!}
+        {!! Form::label('name', 'Votre Nom') !!}
         {!! Form::text('name', null, [
             'required',
             'class'=>'input-control',
@@ -25,7 +25,7 @@
     </div>
 
     <div class="field-group">
-        {!! Form::label('Votre courriel') !!}
+        {!! Form::label('email', 'Votre courriel') !!}
         {!! Form::email('email', null,[
             'required',
             'class'=>'input-control',
@@ -35,7 +35,7 @@
     </div>
 
     <div class="field-group">
-        {!! Form::label('Votre message') !!}
+        {!! Form::label('message', 'Votre message') !!}
         {!! Form::textarea('message', null,[
             'required',
             'class'=>'input-control',

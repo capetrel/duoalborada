@@ -3,7 +3,7 @@ namespace App\Http\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ConcertFormRequest extends FormRequest
+class MediaFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,11 @@ class ConcertFormRequest extends FormRequest
      */
     public function rules()
     {
+        // rules for pages form
         return [
-            'concert_date' => 'required',
-            'concert_time' => 'required',
-            'concert_postal_code' => 'required|digits_between:2,7',
-            'concert_city' => 'required',
+            'media_title' => 'required',
+            'photo' => 'required',
+            'categories_id' => 'required',
         ];
     }
 }

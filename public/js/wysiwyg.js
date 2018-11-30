@@ -60,59 +60,29 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 44);
+/******/ 	return __webpack_require__(__webpack_require__.s = 50);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 44:
+/***/ 50:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(51);
 
 
 /***/ }),
 
-/***/ 45:
-/***/ (function(module, exports) {
+/***/ 51:
+/***/ (function(module, __webpack_exports__) {
 
-function setParams(selector) {
-    return {
-        selector: selector,
-        duration: 200,
-        easing: 'ease-out',
-        perPage: {
-            740: 1,
-            800: 2,
-            1240: 3
-        },
-        startIndex: 0,
-        draggable: true,
-        threshold: 20,
-        loop: true,
-        rtl: false
-    };
-}
-
-function setSiema(suffix) {
-    try {
-        var siema = new Siema(setParams('.siema-' + suffix));
-        document.querySelector('.prev-' + suffix).addEventListener('click', function () {
-            return siema.prev();
-        });
-        document.querySelector('.next-' + suffix).addEventListener('click', function () {
-            return siema.next();
-        });
-        return siema;
-    } catch (e) {
-        // throw 'Un diaporama est vide';
-    }
-}
-
-setSiema('videos');
-setSiema('presses');
-setSiema('galerie');
-setSiema('discographie');
+"use strict";
+$('#editor').trumbowyg({
+    lang: 'fr',
+    btns: [['viewHTML'], ['undo', 'redo'], // Only supported in Blink browsers
+    ['formatting'], ['strong', 'italic', 'del'], ['superscript', 'subscript'], ['link'], ['insertImage'], ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'], ['unorderedList', 'orderedList'], ['horizontalRule'], ['removeformat'], ['fullscreen']],
+    autogrow: true
+});
 
 /***/ })
 

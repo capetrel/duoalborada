@@ -30,11 +30,11 @@ class ConcertsController extends Controller
 
     public function update(ConcertFormRequest $request, $page, $id)
     {
-        $datas =$request->all();
+        $data = $request->all();
 
         try{
 
-            Concert::updateConcert($datas, $id);
+            Concert::updateConcert($data, $id);
 
             $concert = Concert::getConcert($id);
 
@@ -50,7 +50,6 @@ class ConcertsController extends Controller
 
     public function form()
     {
-
         return view('admin.add.concert');
     }
 

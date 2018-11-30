@@ -19,16 +19,13 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header"><h4>Administer les textes</h4></div>
-                    <hr>
-                    <div class="card-body">
 
-                        @include('blocks.messages')
+                    <div class="card-body">
 
                         @foreach($page_content as $content)
                             <h5 class="card-title" >Titre de la page : {!! $content->menu_name  !!}</h5>
                             <p class="card-text">
                                 <strong>Description de la page :</strong> {!! $content->head_title  !!}<br>
-
                                 {!! $content->text ? $content->text : "Il n'y a pas de textes pour cette page"  !!}
                             </p>
                         @endforeach
@@ -58,7 +55,7 @@
 
                         @elseif( url()->current() === url('home/liens'))
 
-                            @include('admin.liens')
+                            @include('admin.links')
 
                         @else
 

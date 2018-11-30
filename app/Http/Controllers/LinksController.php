@@ -7,16 +7,16 @@ use App\Page;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Session;
 
-class LiensController extends Controller
+class LinksController extends Controller
 {
-    public function liens()
+    public function links()
     {
         $text = Page::choosePageText('liens');
         $head_title = Page::currentPageTitle('liens');
 
         $links = Lien::getLinks();
 
-        return view('liens', compact('text', 'head_title', 'links'));
+        return view('links', compact('text', 'head_title', 'links'));
     }
 
     public function edit($page, $id)

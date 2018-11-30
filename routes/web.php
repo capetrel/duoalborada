@@ -14,7 +14,7 @@ Route::get('contact',
 Route::post('contact',
     ['as' => 'contact_post', 'uses' => 'ContactController@contactPost']);
 
-Route::get('liens', 'LiensController@liens');
+Route::get('liens', 'LinksController@links');
 
 Route::get('mentions', 'PagesController@mentions');
 
@@ -60,12 +60,12 @@ Route::post('/home/{page}/add/media/save', 'MediasController@add')->name('home')
 Route::post('/home/{page}/del/media/{id}', 'MediasController@del')->name('home');
 
 /* CRUD for links */
-Route::get('/home/{page}/edit-link/{id}', 'LiensController@edit')->name('home');
+Route::get('/home/{page}/edit-link/{id}', 'LinksController@edit')->name('home');
 
-Route::post('/home/{page}/edit-link/{id}', 'LiensController@update')->name('home');
+Route::post('/home/{page}/edit-link/{id}', 'LinksController@update')->name('home');
 
-Route::get('/home/{page}/add/link', 'LiensController@form')->name('home');
+Route::get('/home/{page}/add/link', 'LinksController@form')->name('home');
 
-Route::post('/home/{page}/add/link/save', 'LiensController@add')->name('home');
+Route::post('/home/{page}/add/link/save', 'LinksController@add')->name('home');
 
-Route::post('/home/{page}/del/link/{id}', 'LiensController@del')->name('home');
+Route::post('/home/{page}/del/link/{id}', 'LinksController@del')->name('home');

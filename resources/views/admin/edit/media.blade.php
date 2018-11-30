@@ -2,6 +2,10 @@
 
 @section('content')
 
+    @push('css')
+        <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
+    @endpush
+
     <div class="container">
         <div class="row">
 
@@ -33,7 +37,7 @@
                             {{ Form::hidden('id', $item->id) }}
 
                             <div class="form-group">
-                                {!! Form::label('Nom du media') !!}<em> ( Obligatoire ) </em>
+                                {!! Form::label('media_title', 'Nom du media') !!}<em> ( Obligatoire ) </em>
                                 {!! Form::text('media_title', $item->media_title, [
                                     'required',
                                     'class'=>'form-control'
@@ -41,34 +45,46 @@
                                 !!}
                             </div>
 
-                            <div class="form-group">
-                                {!! Form::label('Image') !!}<em> ( Obligatoire ) </em>
-                                <img class="thumbnail img-thumbnail" src="{{asset($item->media_thumb)}}" alt="">
-                                {!! Form::hidden('media_thumb', $item->media_thumb, [
-                                    'required',
-                                    'class'=>'form-control'
-                                    ])
-                                !!}
-                                {!! Form::file('photo', ['class' => 'form-control']) !!}
+                            <div class="form-row">
+                                <div class="form-group col-mb-3">
+                                    <div>Image actuelle</div>
+                                    <img class="img-fluid img-thumbnail float-left" src="{{asset($item->media_thumb)}}" alt="{{ $item->media_description }}">
+                                </div>
+                                <div class="form-group col-mb-9">
+                                    <div class="input-group" style="margin-top: 25%;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Changer l'image :</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            {!! Form::hidden('media_thumb', $item->media_thumb )!!}
+                                            {!! Form::file('media_thumb', ['class' => 'custom-file-input', 'lang' => "fr"]) !!}
+                                            {!! Form::label('media_thumb', 'Cliquer ici', ['class' => 'custom-file-label']) !!}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Lien') !!}
+                                {!! Form::label('media_link', 'Lien') !!}
                                 {!! Form::text('media_link', $item->media_link, ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Description') !!}
+                                {!! Form::label('media_description', 'Description') !!}
                                 {!! Form::text('media_description', $item->media_description, ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Date du média') !!}
-                                {!! Form::date('media_date', $item->media_date, ['class'=>'form-control']) !!}
+                                {!! Form::label('media_date', 'Date du média') !!}
+                                {!! Form::date('media_date', $item->media_date, [
+                                    'class'=>'form-control',
+                                    'id'=>'flat-date'
+                                    ])
+                                !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Catégorie :') !!}<em> ( Obligatoire ) </em>
+                                {!! Form::label('categories_id', 'Catégorie :') !!}<em> ( Obligatoire ) </em>
                                 {!! Form::select('categories_id', $categories, null,[
                                     'required',
                                     'class'=>'form-control',
@@ -79,7 +95,7 @@
 
                             <div class="form-group">
                                 {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ asset('/home/medias') }}">Annuler</a>
+                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ url('/home/medias') }}">Annuler</a>
                             </div>
 
                         @endforeach
@@ -92,5 +108,9 @@
 
         </div>
     </div>
+
+    @push('scripts')
+        <script src="{{ asset('js/datepicker.js') }}"></script>
+    @endpush
 
 @endsection

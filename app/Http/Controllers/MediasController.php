@@ -2,8 +2,11 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Request\MediaFormRequest;
 use App\Page;
 use App\Media;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Session;
 
 class MediasController extends Controller
 {
@@ -26,4 +29,41 @@ class MediasController extends Controller
 
         return view('admin.edit.media', compact( 'media', 'categories'));
     }
+
+    public function update(MediaFormRequest $request, $page, $id)
+    {
+        $data = $request->all();
+
+        try{
+
+            var_dump($data); die();
+
+            Session::flash('message', 'Le concert a bien été mis à jour');
+
+            return view('admin.edit.media', compact( 'media'));
+
+        }
+        catch(ModelNotFoundException $err){
+            return view('errors.500', compact('err'));
+        }
+    }
+
+    public function form()
+    {
+
+        $categories = [0 => 'video', 1 => 'presses'];
+        return view('admin.add.media', compact('categories'));
+    }
+
+    public function add()
+    {
+
+    }
+
+    public function del()
+    {
+
+    }
+
+
 }

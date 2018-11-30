@@ -2,6 +2,10 @@
 
 @section('content')
 
+    @push('css')
+        <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
+    @endpush
+
     <div class="container">
         <div class="row">
 
@@ -24,69 +28,78 @@
 
                         @include('blocks.errors')
 
-                        @include('blocks.messages')
+                        {!! Form::open([
+                            'url' => url()->current().'/save',
+                            'method' => 'post'
+                            ])
+                        !!}
 
-                        {!! Form::open(['url' => url()->current().'/save','method' => 'post']) !!}
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    {!! Form::label('concert_date', 'Date du concert') !!}<em> ( Obligatoire ) </em>
+                                    {!! Form::date('concert_date', \Carbon\Carbon::now(), [
+                                        'required',
+                                        'class'=>'form-control',
+                                        'id'=>'flat-date'
+                                        ])
+                                    !!}
+                                </div>
 
-                            <div class="form-group">
-                                {!! Form::label('Date du concert') !!}<em> ( Obligatoire ) </em>
-                                {!! Form::date('concert_date', 'date du concert', [
-                                    'required',
-                                    'class'=>'form-control'
-                                    ])
-                                !!}
+                                <div class="form-group col-md-6">
+                                    {!! Form::label('concert_time', 'Heure du concert') !!}<em> ( Obligatoire ) </em>
+                                    {!! Form::time('concert_time', null, [
+                                        'required',
+                                        'class'=>'form-control',
+                                        'id'=>'flat-time'
+                                        ])
+                                    !!}
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Heure du concert') !!}
-                                {!! Form::time('concert_time', 'heure du concert', [
-                                    'required',
-                                    'class'=>'form-control'
-                                    ])
-                                !!}
-                            </div>
-
-                            <div class="form-group">
-                                {!! Form::label('Adresse :') !!}
+                                {!! Form::label('concert_adress1', 'Adresse :') !!}
                                 {!! Form::text('concert_adress1', 'adresse', ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Complément d\'adresse :') !!}
+                                {!! Form::label('concert_adress2', 'Complément d\'adresse :') !!}
                                 {!! Form::text('concert_adress2', 'complément d\'adresse', ['class'=>'form-control']) !!}
                             </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    {!! Form::label('concert_postal_code', 'code postale :') !!}<em> ( Obligatoire, 2 chiffres ) </em>
+                                    {!! Form::number('concert_postal_code', '0', [
+                                        'required',
+                                        'min' => "0",
+                                        'max' => "100",
+                                        'class'=>'form-control'
+                                        ])
+                                    !!}
+                                </div>
 
-                            <div class="form-group">
-                                {!! Form::label('code postale :') !!}<em> ( Obligatoire ) </em>
-                                {!! Form::number('concert_postal_code', 'code postale', [
-                                    'required',
-                                    'class'=>'form-control'
-                                    ])
-                                !!}
+                                <div class="form-group col-md-8">
+                                    {!! Form::label('concert_city', 'Ville :') !!}<em> ( Obligatoire ) </em>
+                                    {!! Form::text('concert_city', 'ville', [
+                                        'required',
+                                        'class'=>'form-control'
+                                        ])
+                                    !!}
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Ville :') !!}<em> ( Obligatoire ) </em>
-                                {!! Form::text('concert_city', 'ville', [
-                                    'required',
-                                    'class'=>'form-control'
-                                    ])
-                                !!}
-                            </div>
-
-                            <div class="form-group">
-                                {!! Form::label('Information(s) :') !!}
+                                {!! Form::label('informations', 'Information(s) :') !!}
                                 {!! Form::text('informations', 'infos', ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('Courriel :') !!}
+                                {!! Form::label('concert_mail', 'Courriel :') !!}
                                 {!! Form::text('concert_mail', 'email ou téléphone', ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ asset('/home/concerts') }}">Annuler</a>
+                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ url('/home/concerts') }}">Annuler</a>
                             </div>
 
                         {!! Form::close() !!}
@@ -97,5 +110,9 @@
 
         </div>
     </div>
+
+    @push('scripts')
+        <script src="{{ asset('js/datepicker.js') }}"></script>
+    @endpush
 
 @endsection

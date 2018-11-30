@@ -59,16 +59,16 @@ class HomeController extends Controller
     public function update(PagesFormRequest $request, $page)
     {
 
-        $datas =$request->all();
+        $data =$request->all();
 
         try{
 
-            Page::updatePage($datas, $page);
+            Page::updatePage($data, $page);
             $page_content = Page::getContent($page);
 
             Session::flash('message', 'La modification à bien été prise en compte');
 
-            return view('admin.home', compact('page_content'));
+            return view('admin.welcome', compact('page_content'));
 
         }
         catch(ModelNotFoundException $err){
