@@ -87,6 +87,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Modal
+var modal = document.getElementById('modal');
+if (modal) {
+    (function () {
+        var modalImg = document.getElementById("modalImg");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDesc = document.getElementById("modalDesc");
+
+        var works = document.getElementsByClassName('work');
+
+        var _loop = function _loop(i) {
+            var img = works[i];
+            img.onclick = function () {
+                modal.style.display = "block";
+                var thumbSrc = img.childNodes[3].childNodes[1];
+                var thumbTitle = img.childNodes[5].childNodes[1];
+                var thumbDesc = img.childNodes[5].childNodes[3];
+
+                modalImg.src = thumbSrc.src.replace('/thumbs/', '/');
+                modalTitle.innerHTML = thumbTitle.innerHTML;
+                modalDesc.innerHTML = thumbDesc.innerHTML;
+            };
+        };
+
+        for (var i = 0; i < works.length; i++) {
+            _loop(i);
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        modal.onclick = function () {
+            modal.style.display = "none";
+        };
+    })();
+}
+
 /***/ }),
 
 /***/ 43:

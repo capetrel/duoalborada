@@ -1,5 +1,9 @@
 @extends('layouts.duoalborada')
 
+@push('scripts')
+    {!! htmlScriptTagJsApi() !!}
+@endpush
+
 @section('content')
 
     @foreach($text as $txt)

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -36,44 +36,38 @@ class HomeController extends Controller
         return view('admin.home', compact('user_data'));
     }
 
-    public function show($pages)
+    public function show($page)
     {
-
-        $page_content = Page::getContent($pages);
+        $page_content = Page::getContent($page);
         $concerts = Concert::concertsByYear();
         $links = Lien::getLinks();
-
         $media_from_category = Media::getMediasFromCategory();
 
-        return view('admin.welcome', compact( 'page_content', 'concerts', 'links', 'media_from_category'));
+        return view('admin.welcome', compact( 'page_content', 'concerts', 'links', 'media_from_category', 'page'));
 
     }
 
-    public function edit($pages)
+    public function edit($page)
     {
-        $page_content = Page::getEditContent($pages);
+        $page_content = Page::getEditContent($page);
 
-        return view('admin.edit.pages', compact( 'page_content'));
+        return view('admin.edit.pages', compact( 'page_content', 'page'));
     }
 
     public function update(PagesFormRequest $request, $page)
     {
-
-        $data =$request->all();
+        $data = $request->all();
 
         try{
 
             Page::updatePage($data, $page);
             $page_content = Page::getContent($page);
 
-            Session::flash('message', 'La modification à bien été prise en compte');
-
-            return view('admin.welcome', compact('page_content'));
+            return view('admin.welcome', compact('page_content', 'page'));
 
         }
         catch(ModelNotFoundException $err){
             return view('errors.500', compact('err'));
         }
-
     }
 }

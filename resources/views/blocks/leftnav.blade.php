@@ -3,10 +3,10 @@
     <div role="navigation" class="item-menu">
         @foreach($left_menu as $item)
 
-            @if( url()->current() === asset($item->url_name))
+            @if( url()->current() === url($item->url_name))
                 <span class="item-menu-active">{{ $item->menu_name }}</span>
             @else
-                <a href="{{ asset($item->url_name) }}" title="Aller à {{ $item->menu_name }}">{{ $item->menu_name }}</a>
+                <a href="{{ url($item->url_name) }}" title="Aller à la page : {{ $item->menu_name }}">{{ $item->menu_name }}</a>
             @endif
 
         @endforeach
@@ -17,7 +17,7 @@
     </ul>
 
 </div>
-
+<!-- burger menu -->
 <nav role="navigation" class="open-slide">
     <div id="menuToggle">
         <input type="checkbox" />
@@ -29,10 +29,10 @@
         <ul id="menu">
             @foreach($left_menu as $k => $item)
 
-                @if( url()->current() === asset($item->url_name))
+                @if( url()->current() === url($item->url_name))
                     <a href="javascript:void(0)" class="item-menu-active">{{ $item->menu_name }}</a>
                 @else
-                    <a href="{{ asset($item->url_name) }}" title="Aller à {{ $item->menu_name }}">{{ $item->menu_name }}</a>
+                    <a href="{{ url($item->url_name) }}" title="Aller à la page : {!! $item->menu_name !!}">{{ $item->menu_name }}</a>
                 @endif
 
             @endforeach

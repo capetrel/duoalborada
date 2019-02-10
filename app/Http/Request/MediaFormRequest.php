@@ -25,7 +25,7 @@ class MediaFormRequest extends FormRequest
         // rules for pages form
         return [
             'media_title' => 'required',
-            'photo' => 'required',
+            'media_thumb' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'categories_id' => 'required',
         ];
     }

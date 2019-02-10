@@ -28,11 +28,7 @@
 
                         @include('blocks.errors')
 
-                        {!! Form::open([
-                            'url' => url()->current().'/save',
-                            'method' => 'post'
-                            ])
-                        !!}
+                        {!! Form::open(['url' => route('save-concert', ['pages' => $page]), 'method' => 'post']) !!}
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -58,17 +54,17 @@
 
                             <div class="form-group">
                                 {!! Form::label('concert_adress1', 'Adresse :') !!}
-                                {!! Form::text('concert_adress1', 'adresse', ['class'=>'form-control']) !!}
+                                {!! Form::text('concert_adress1', null, ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('concert_adress2', 'Complément d\'adresse :') !!}
-                                {!! Form::text('concert_adress2', 'complément d\'adresse', ['class'=>'form-control']) !!}
+                                {!! Form::text('concert_adress2', null, ['class'=>'form-control']) !!}
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     {!! Form::label('concert_postal_code', 'code postale :') !!}<em> ( Obligatoire, 2 chiffres ) </em>
-                                    {!! Form::number('concert_postal_code', '0', [
+                                    {!! Form::number('concert_postal_code', null, [
                                         'required',
                                         'min' => "0",
                                         'max' => "100",
@@ -79,7 +75,7 @@
 
                                 <div class="form-group col-md-8">
                                     {!! Form::label('concert_city', 'Ville :') !!}<em> ( Obligatoire ) </em>
-                                    {!! Form::text('concert_city', 'ville', [
+                                    {!! Form::text('concert_city', null, [
                                         'required',
                                         'class'=>'form-control'
                                         ])
@@ -89,17 +85,17 @@
 
                             <div class="form-group">
                                 {!! Form::label('informations', 'Information(s) :') !!}
-                                {!! Form::text('informations', 'infos', ['class'=>'form-control']) !!}
+                                {!! Form::text('informations', null, ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('concert_mail', 'Courriel :') !!}
-                                {!! Form::text('concert_mail', 'email ou téléphone', ['class'=>'form-control']) !!}
+                                {!! Form::text('concert_mail', null, ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ url('/home/concerts') }}">Annuler</a>
+                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ route('page', ['pages' => $page]) }}">Annuler</a>
                             </div>
 
                         {!! Form::close() !!}

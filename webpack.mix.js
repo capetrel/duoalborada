@@ -17,7 +17,13 @@ mix.sass('resources/sass/duoalborada.scss', 'public/css')
     .sass('resources/sass/datepicker.scss', 'public/css')
     .sass('resources/sass/wysiwyg.scss', 'public/css')
     .options({
-        processCssUrls: false
+        processCssUrls: false,
+        postCss: [
+            require('autoprefixer')({
+                browsers: ['last 40 versions'],
+                grid: true
+            })
+        ]
     })
     .js('resources/js/master.js', 'public/js')
     .js('resources/js/duoalborada.js', 'public/js')

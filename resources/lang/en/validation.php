@@ -116,6 +116,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Custom Validation Rule Message
+    |--------------------------------------------------------------------------
+    |
+    | Message for custom rule is_slug
+    |
+    */
+    'is_slug' => 'The :attribute must be a valid slug (no uppercase and special char except -).',
+
+    /*
+    |--------------------------------------------------------------------------
     | Custom Validation Language Lines
     |--------------------------------------------------------------------------
     |
@@ -142,6 +152,43 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name'                  => 'name',
+        'username'              => "username",
+        'email'                 => 'email',
+        'first_name'            => 'first_name',
+        'last_name'             => 'last_name',
+        'password'              => 'password',
+        'password_confirmation' => 'password_confirmation',
+        'city'                  => 'city',
+        'country'               => 'country',
+        'address'               => 'address',
+        'phone'                 => 'phone',
+        'mobile'                => 'mobile',
+        'age'                   => 'age',
+        'sex'                   => 'sex',
+        'gender'                => 'gender',
+        'day'                   => 'day',
+        'month'                 => 'month',
+        'year'                  => 'year',
+        'hour'                  => 'hour',
+        'minute'                => 'minute',
+        'second'                => 'second',
+        'title'                 => 'title',
+        'content'               => 'content',
+        'description'           => 'description',
+        'excerpt'               => 'excerpt',
+        'date'                  => 'date',
+        'time'                  => 'time',
+        'available'             => 'available',
+        'size'                  => 'size',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Validation Google Recaptcha
+    |--------------------------------------------------------------------------
+    */
+        'recaptcha' => 'Hey!!! :attribute is wrong!',
 
 ];

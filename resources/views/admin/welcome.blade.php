@@ -18,7 +18,7 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header"><h4>Administer les textes</h4></div>
+                    <div class="card-header"><h4>Administer la page :</h4></div>
 
                     <div class="card-body">
 
@@ -30,8 +30,8 @@
                             </p>
                         @endforeach
 
-                        <a class="btn btn-primary" href="{{ url( 'home/' . $content->url_name . "/edit") }}">
-                            Modifier ces textes :
+                        <a class="btn btn-primary" href="{{ route( 'edit-page', ['page' => $page]) }}">
+                            Modifier la page :
                         </a>
 
                     </div>
@@ -45,15 +45,15 @@
                     </div>
                     <div class="panel-body">
 
-                        @if( url()->current() === url('home/concerts'))
+                        @if( url()->current() === url('admin/concerts'))
 
                             @include('admin.concerts')
 
-                        @elseif( url()->current() === url('home/medias'))
+                        @elseif( url()->current() === url('admin/medias'))
 
                             @include('admin.medias')
 
-                        @elseif( url()->current() === url('home/liens'))
+                        @elseif( url()->current() === url('admin/liens'))
 
                             @include('admin.links')
 

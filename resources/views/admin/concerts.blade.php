@@ -3,7 +3,7 @@ setlocale(LC_TIME, 'fr_FR.utf8','fra');
 ?>
 <div class="dispatch-concerts">
 
-    <a class="btn btn-primary" href="{{ url( 'home/' . $content->url_name . "/add/concert") }}" title="Ajouter un concert">
+    <a class="btn btn-primary" href="{{ route('add-concert', ['page' => $page]) }}" title="Ajouter un concert">
         Ajouter un concert
     </a>
     ,&nbsp;ou modifier un concert existant ci-dessous :
@@ -15,16 +15,14 @@ setlocale(LC_TIME, 'fr_FR.utf8','fra');
 
             @foreach($concerts[$year] as $concert)
                 <p>
-                    {!! Form::open(['url' => url()->current().'/del/concert/'.$concert->id,'method' => 'post']) !!}
-                    {{ csrf_field() }}
-                <button type="submit" class="btn btn-danger" title="supprimer le concert">
-                    <i class="oi oi-delete"></i>
-                </button>
-
-                <a class="btn btn-info" href="{{$content->url_name}}/edit/{{$concert->id}}" title="modifier le concert">
-                    <span class="oi oi-pencil" title="modifier le concert"></span>
-                </a>
+                    {!! Form::open(['url' => route('del-concert', ['page'=>$page, 'id' => $concert->id]),'method' => 'post',"style"=>"display:inline-block" ,"onsubmit" => "return confirm('êtes vous sur ?')"]) !!}
+                        <button type="submit" class="btn btn-danger" title="supprimer le concert">
+                            <i class="oi oi-trash"></i>
+                        </button>
                     {!! Form::close() !!}
+                    <a class="btn btn-info" href="{{ route('edit-concert', ['page'=>$page, 'id' => $concert->id]) }}" title="modifier le concert">
+                        <span class="oi oi-pencil" title="modifier le concert"></span>
+                    </a>
 
                     @if($concert->concert_date != "")
                         <strong>{{ Carbon\Carbon::parse($concert->concert_date)->formatLocalized('%a %d %b %Y') }}</strong>

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Request;
 
+use App\Rules\IsSlug;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PagesFormRequest extends FormRequest
@@ -25,7 +26,8 @@ class PagesFormRequest extends FormRequest
     {
         // rules for pages form
         return [
-            'url_name' => 'required',
+            'url_name' => ['required', new IsSlug()],
+            'menu_order' => 'numeric',
             'menu_name' => 'required',
             'head_title' => 'required',
         ];

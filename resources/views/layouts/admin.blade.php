@@ -33,7 +33,7 @@
     <div id="master">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('/admin') }}">
                     Accueil
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('login.Toggle navigation') }}">
@@ -62,7 +62,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/home') }}">
+                                    <a class="dropdown-item" href="{{ url('/admin') }}">
                                        Mon profil
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

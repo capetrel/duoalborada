@@ -5,7 +5,7 @@ Vous avez un message votre site internet : <br>
 </p>
 
 <p>
-    Nom : {{ $email }}
+    Email : {{ $email }}
 </p>
 
 <p>

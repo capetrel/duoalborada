@@ -26,7 +26,6 @@ class Concert extends Model
         'pages_id',
     ];
 
-
     /**
      * @return mixed All the years
      */

@@ -18,4 +18,57 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
 </IfModule>
+
+# FILTRE CONTRE XSS, REDIRECTIONS HTTP, base64_encode, VARIABLE PHP GLOBALS VIA URL, MODIFIER VARIABLE _REQUEST VIA URL, TEST DE FAILLE PHP, INJECTION SQL SIMPLE
+ RewriteEngine On
+ RewriteCond %{REQUEST_METHOD} (GET|POST) [NC]
+ RewriteCond %{QUERY_STRING} ^(.*)(%3C|<)/?script(.*)$ [NC,OR]
+ RewriteCond %{QUERY_STRING} ^(.*)(%3D|=)?javascript(%3A|:)(.*)$ [NC,OR]
+ RewriteCond %{QUERY_STRING} ^(.*)document\.location\.href(.*)$ [OR]
+ RewriteCond %{QUERY_STRING} ^.*(%24&x).* [NC,OR]
+ RewriteCond %{QUERY_STRING} ^.*(127\.0).* [NC,OR]
+# ATTENTION A CETTE REGLE. ELLE PEUT CASSER CERTAINES REDIRECTIONS RESSEMBLANT A: http://www.truc.fr/index.php?r=http://www.google.fr ##
+ RewriteCond %{QUERY_STRING} ^(.*)(%3D|=)(https?|ftp|mosConfig)(%3A|:)//(.*)$ [NC,OR]
+ RewriteCond %{QUERY_STRING} ^.*(_encode|localhost|loopback).* [NC,OR]
+ RewriteCond %{QUERY_STRING} ^(.*)GLOBALS(=|[|%[0-9A-Z]{0,2})(.*)$ [OR]
+ RewriteCond %{QUERY_STRING} ^(.*)_REQUEST(=|[|%[0-9A-Z]{0,2})(.*)$ [OR]
+ RewriteCond %{QUERY_STRING} ^(.*)(SELECT(%20|\+)|UNION(%20|\+)ALL|INSERT(%20|\+)|DELETE(%20|\+)|CHAR\(|UPDATE(%20|\+)|REPLACE(%20|\+)|LIMIT(%20|\+)|CONCAT(%20|\+)|DECLARE(%20|\+))(.*)$ [NC]
+
+# EXCEPTION: TOUS LES ROBOTS MEMES ANONYMES OU BANNIS PEUVENT ACCEDER A CES FICHIERS
+ RewriteCond %{REQUEST_URI} !^robots.txt
+ RewriteCond %{REQUEST_URI} !^sitemap.xml
+
+# ANONYMES
+ RewriteCond %{HTTP_USER_AGENT} ^-?$ [OR]
+
+# CETTE LISTE BLOQUE 80% DES ROBOTS SPAMMEURS. IL FAUT LA CONSERVER.
+ RewriteCond %{HTTP_USER_AGENT} ^curl|^Fetch\ API\ Request|GT::WWW|^HTTP::Lite|httplib|^Java|^LeechFTP|lwp-trivial|^LWP|libWeb|libwww|^PEAR|PECL::HTTP|PHPCrawl|PycURL|python|^ReGet|Rsync|Snoopy|URI::Fetch|urllib|WebDAV|^Wget|^AnyConnect|Nmap\ Scripting [NC]
+
+# DESACTIVE LES METHODES DE REQUETES DELETE, PUT, PATCH
+ RewriteCond %{REQUEST_METHOD} ^(DELETE|PUT|PATCH) [NC]
+
+# INTERDIRE LES AUTRES TYPES DE FICHIER INDEX
+ RewriteRule "^(index)\.(p?s?x?htm?|txt|aspx?|cfml?|cgi|pl|php[3-9]|jsp|xml)$" - [NC,F]
+
+# INTERDIRE L'AFFICHAGE DE CERTAINS FORMATS DE FICHIER EXÉCUTÉS PAR LE SERVEUR, MAIS INTERDIT D'AFFICHAGE PAR LE NAVIGATEUR WEB
+ RewriteRule "(\.(aspx?|bak|bash|bin|bkp|c|class|conf|config|cvs|cxz|dat|dist|dll|env|exe|fla|git|h|hg|inc|ini|jsp|log|mdb|module|mso|pl|psd|py|rar|sh|spd|sql|svn|sw[op]|theme|tpl)|~)$" - [NC,F]
+
+# INTERDIRE L'ACCÈS À CERTAINS DOSSIERS PAR LE NAVIGATEUR WEB MAIS AUTORISÉS ET EXÉCUTÉS PAR LE SERVEUR
+ RewriteRule "(\.svn|\.git|\.hg|\.bzr|\.cvs|.ssh|install?|users?|modules|node|core|config(ure|uration)?|options?|settings?|functions?|setup|[-_a-z0-9.]*cms[-_a-z0-9.]*|[-_a-z0-9.]*php[-_a-z0-9.]*|null|^root|^logs?)/.*" - [NC,F]
+
+# INTERDIRE L'AFFICHAGE DE CERTAINS FICHIERS COMME readme, changelog, default, xmlrpc.
+# CES FICHIERS DONNENT DES INFORMATIONS PRECIEUSES SUR LA CONFIGURATION INSTALLÉE (NOM DU SERVEUR ET NUMÉRO DE VERSION).
+ RewriteRule "(readme|changelog|license|default|home|xmlrpc|local|errors?|debug|hacke?r?d?|php|shell|ssh|roots?|cmd|null|test|data)\.(p?s?x?htm?l?|txt|md|log|aspx?|cfml?|cgi|pl|php[3-9]{0,1}|jsp?|sql|xml)$" - [NC,F]
+
+# PROTECTION DES ACCÈS SFTP DE SYNCHRONISATION NON SÉCURISÉS ET NON AUTORISÉS DEPUIS UN NAVIGATEUR WEB
+ RewriteRule "\.?(s?ftp|remote|deployment|ws_ftp|winscp|filezilla|webservers)-?(config|sync)?\.(json|settings?|ini|xml)$" - [NC,F]
+ RewriteRule "(\.ssh/)?(id_[rdec1259]+sa)$" - [NC,F]
+
+# SI VOUS N'UTILISEZ PAS DE CMS, VOUS POUVEZ AJOUTER LE CODE CI-DESSOUS,
+ RewriteRule "(install?|users?|upload(er)?|regist(er|ration)|config(\.inc|ure|uration)?|options?(\.inc)?|settings?(\.inc)?|functions?(\.inc)?|setup(\.inc)?)\.(p?s?x?htm?l?|css|txt|md|log|aspx?|cfml?|cgi|pl|php[3-9]{0,1}|jsp?)$" - [NC,F]
+
+# INTERDIRE L'ACCES AUX INTERFACES D'ADMINISTRATION DE WORDPRESS OU AUTRE CMS QUI SE DEVINE FACILEMENT COMME login ou wp-login, admin, manager, etc.
+ RewriteRule "(wp-?|wordpress|login|(my)?admin(istrator)?(zone)?|blog/|^modules|^manager)" - [NC,F]
+

@@ -30,18 +30,33 @@
 
                         @include('blocks.messages')
 
-                        {!! Form::open(['url' => url()->current().'/update', 'method' => 'post']) !!}
+                        {!! Form::open(['url' => route('update-page', ['page'=>$page]), 'method' => 'post']) !!}
 
                         @foreach($page_content as $content)
 
-                            <div class="form-group">
-                                {!! Form::label('menu_name', 'Titre de la page :') !!}
-                                <em> ( Nom qui apparait dans les menus du site ) </em>
-                                {!! Form::text('menu_name', $content->menu_name, [
-                                    'required',
-                                    'class'=>'form-control'])
-                                !!}
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        {!! Form::label('menu_name', 'Titre de la page :') !!}
+                                        <em> ( Nom qui apparait dans les menus du site ) </em>
+                                        {!! Form::text('menu_name', $content->menu_name, [
+                                            'required',
+                                            'class'=>'form-control'])
+                                        !!}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        {!! Form::label('menu_order', 'Position dans le menu :') !!}
+                                        <em> ( Ordre croissant de haut en bas ) </em>
+                                        {!! Form::number('menu_order', $content->menu_order, [
+                                            'required',
+                                            'class'=>'form-control'])
+                                        !!}
+                                    </div>
+                                </div>
                             </div>
+
 
                             <div class="form-group">
                                 {!! Form::label('url_name', 'Nom de la page dans l\'url :') !!}
@@ -71,7 +86,7 @@
 
                             <div class="form-group">
                                 {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{url('/home/'.$content->url_name)}}">Annuler</a>
+                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ route('page', ['pages'  => $content->url_name]) }}">Annuler</a>
                             </div>
 
                         @endforeach

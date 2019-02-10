@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="description" content="Duo de guitare classique espagnole en région centre, le Duo Alborada." />
     <meta name="keywords" content="Duo, Alborada, guitare, classique, espagnole, festival, musique, guitare, voyage guitare,animation musique, projet pedagogique, region centre, centre, indre et loire, 37,tours, Festival Voyage au Centre de la Guitare," />
     <meta name="robot" content="index, follow, all"/>

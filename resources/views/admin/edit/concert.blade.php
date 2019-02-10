@@ -30,7 +30,7 @@
 
                         @include('blocks.messages')
 
-                        {!! Form::open() !!}
+                        {!! Form::open( ['url' => route('update-concert', ['pages'=>$page, 'id'=>$id]), 'method' => 'post'] ) !!}
 
                         @foreach($concert as $item)
 
@@ -102,7 +102,7 @@
 
                             <div class="form-group">
                                 {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ url('/home/concerts') }}">Annuler</a>
+                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ route('page', ['pages'  => $page]) }}">Annuler</a>
                             </div>
 
                         @endforeach

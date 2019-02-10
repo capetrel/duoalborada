@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Request;
 
+use Illuminate\Foundation\Http\FormRequest;
+
 class ContactFormRequest extends FormRequest
 {
     /**
@@ -21,9 +23,10 @@ class ContactFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|min:3',
             'email' => 'required|email',
-            'message' => 'required',
+            'message' => 'required|min:3',
+            'g-recaptcha-response' => 'recaptcha',
         ];
     }
 }

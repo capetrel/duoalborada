@@ -43,12 +43,14 @@ setlocale(LC_TIME, 'fr_FR.utf8','fra');
                         {{ $media->media_date ? Carbon\Carbon::parse($media->media_date)->formatLocalized('%a %d %b %Y') : '' }}
                     </td>
                     <td>
-                        <button class="btn btn-danger">
-                            <span class="oi oi-delete" aria-hidden="true" title="supprimer le média"></span>
+                        {!! Form::open(['url' => route('del-media', ['page' => $page, 'id' => $media->id]), 'method' => 'post', "onsubmit" => "return confirm('êtes vous sur ?')"]) !!}
+                        <button type="submit" class="btn btn-danger" title="supprimer le média">
+                            <i class="oi oi-trash"></i>
                         </button>
+                        {!! Form::close() !!}
                     </td>
                     <td>
-                        <a href="{{ url()->current().'/edit-media/'.$media->id }}" class="btn btn-info">
+                        <a href="{{ route('edit-media', ['page' => $page, 'id' => $media->id]) }}" class="btn btn-info">
                             <span class="oi oi-pencil" aria-hidden="true" title="modifier le média"></span>
                         </a>
                     </td>
@@ -59,7 +61,7 @@ setlocale(LC_TIME, 'fr_FR.utf8','fra');
             <tfoot>
                 <tr>
                     <td colspan="6">
-                        <a href="{{ url()->current().'/add/media' }}" class="btn btn-primary" title="Ajouter dans {{$cat}}">Ajouter dans {{ $cat }}</a>
+                        <a href="{{ route('add-media', ['page' => $page, 'cat' => str_slug($cat)]) }}" class="btn btn-primary" title="Ajouter dans {{$cat}}">Ajouter dans {{ $cat }}</a>
                     </td>
                 </tr>
             </tfoot>

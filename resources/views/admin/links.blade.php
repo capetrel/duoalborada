@@ -1,4 +1,4 @@
-<a class="btn btn-primary" href="{{ url( 'home/' . $content->url_name . "/add/link") }}" title="Ajouter un concert">
+<a class="btn btn-primary" href="{{ route('add-link', ['page' => $page]) }}" title="Ajouter un concert">
     Ajouter un lien
 </a>
 ,&nbsp;ou modifier un lien existant ci-dessous :
@@ -24,7 +24,6 @@
         </thead>
         <tbody class="tab-content">
         @foreach($links as $link)
-
             <tr>
                 <td>
                     {{ $link->link_name }}
@@ -36,15 +35,14 @@
                    {{ $link->link }}
                 </td>
                 <td>
-                {!! Form::open(['url' => url()->current().'/del/link/'.$link->id,'method' => 'post']) !!}
-                {{ csrf_field() }}
+                {!! Form::open(['url' => route('del-link', ['page' => $page, 'id' => $link->id]), 'method' => 'post', "onsubmit" => "return confirm('êtes vous sur ?')"]) !!}
                     <button type="submit" class="btn btn-danger" title="supprimer le lien">
-                        <i class="oi oi-delete"></i>
+                        <i class="oi oi-trash"></i>
                     </button>
-                    {!! Form::close() !!}
+                {!! Form::close() !!}
                 </td>
                 <td>
-                    <a class="btn btn-info" href="{{url()->current()}}/edit-link/{{$link->id}}" title="modifier le lien">
+                    <a class="btn btn-info" href="{{ route('edit-link', ['page' => $page, 'id' => $link->id]) }}" title="modifier le lien">
                         <span class="oi oi-pencil" aria-hidden="true" title="modifier le lien"></span>
                     </a>
                 </td>

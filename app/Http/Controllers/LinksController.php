@@ -23,7 +23,7 @@ class LinksController extends Controller
     {
         $link = Lien::getLink($id);
 
-        return view('admin.edit.link', compact( 'link'));
+        return view('admin.edit.link', compact( 'link', 'page', 'id'));
     }
 
     public function update(LinkFormRequest $request, $page, $id)
@@ -38,7 +38,7 @@ class LinksController extends Controller
 
             Session::flash('message', 'Le lien a bien été mis à jour');
 
-            return view('admin.edit.link', compact( 'link'));
+            return view('admin.edit.link', compact( 'link','page', 'id'));
 
         }
         catch(ModelNotFoundException $err){
@@ -46,9 +46,9 @@ class LinksController extends Controller
         }
     }
 
-    public function form()
+    public function form($page)
     {
-        return view('admin.add.link');
+        return view('admin.add.link', compact('page'));
     }
 
     public function add(LinkFormRequest $request, $page)
@@ -62,25 +62,18 @@ class LinksController extends Controller
 
         $datas['pages_id']= $page_id;
 
-
         Lien::create($datas);
 
-        Session::flash('message', 'Le lien a bien été ajouté');
-
-        return redirect('home/liens');
+        return redirect('admin/' . $page);
     }
 
 
     public function del($page, $id)
     {
-
         $link = Lien::find($id);
-
         $link->delete();
 
-        Session::flash('message', 'Le lien a bien été supprimé');
-
-        return redirect('home/liens');
+        return redirect('admin/' . $page);
     }
 
 }

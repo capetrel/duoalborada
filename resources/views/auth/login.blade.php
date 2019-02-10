@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@push('scripts')
+    {!! htmlScriptTagJsApi() !!}
+@endpush
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

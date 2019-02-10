@@ -74,9 +74,8 @@ module.exports = __webpack_require__(51);
 /***/ }),
 
 /***/ 51:
-/***/ (function(module, __webpack_exports__) {
+/***/ (function(module, exports) {
 
-"use strict";
 $('#editor').trumbowyg({
     lang: 'fr',
     btns: [['viewHTML'], ['undo', 'redo'], // Only supported in Blink browsers

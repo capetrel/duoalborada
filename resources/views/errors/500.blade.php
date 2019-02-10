@@ -63,7 +63,7 @@
         </header>
 
         <div class="custom-content">
-            <p><strong>Erreur interne du serveur.</strong><a href="{{ url('contact') }}"> Contactez l'administrateur</a></p>
+            <p><strong>Erreur interne du serveur.</strong><a href="{{ route('contact') }}"> Contactez l'administrateur</a></p>
             @if($err)
                 {{ $err }}
             @endif

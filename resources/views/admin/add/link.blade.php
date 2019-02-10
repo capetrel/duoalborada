@@ -24,7 +24,7 @@
 
                         @include('blocks.errors')
 
-                        {!! Form::open(['url' => url()->current().'/save','method' => 'post']) !!}
+                        {!! Form::open(['url' => route('save-link', ['pages' => $page]), 'method' => 'post']) !!}
 
                         <div class="form-group">
                             {!! Form::label('link_name', 'Nom du lien') !!}<em> ( Obligatoire ) </em>
@@ -55,7 +55,7 @@
 
                         <div class="form-group">
                             {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                            <a class="btn btn-secondary" title="retour à la page précédente" href="{{ url('/home/liens') }}">Annuler</a>
+                            <a class="btn btn-secondary" title="retour à la page précédente" href="{{ route('page', ['pages' => $page]) }}">Annuler</a>
                         </div>
 
                         {!! Form::close() !!}

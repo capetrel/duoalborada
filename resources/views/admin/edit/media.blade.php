@@ -30,7 +30,7 @@
 
                         @include('blocks.messages')
 
-                        {!! Form::open(['url' => url()->current().'/image','method' => 'post', 'file' => true]) !!}
+                        {!! Form::open(['url' => route('update-media', ['pages'=>$page, 'id'=>$id]), 'method' => 'post', 'files' => true]) !!}
 
                         @foreach($media as $item)
 
@@ -51,16 +51,10 @@
                                     <img class="img-fluid img-thumbnail float-left" src="{{asset($item->media_thumb)}}" alt="{{ $item->media_description }}">
                                 </div>
                                 <div class="form-group col-mb-9">
-                                    <div class="input-group" style="margin-top: 25%;">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Changer l'image :</span>
-                                        </div>
-                                        <div class="custom-file">
-                                            {!! Form::hidden('media_thumb', $item->media_thumb )!!}
-                                            {!! Form::file('media_thumb', ['class' => 'custom-file-input', 'lang' => "fr"]) !!}
-                                            {!! Form::label('media_thumb', 'Cliquer ici', ['class' => 'custom-file-label']) !!}
-                                        </div>
-                                    </div>
+                                    {!! Form::label('media_thumb', 'Changer d\'image') !!}
+                                    {!! Form::hidden('media_thumb_old', $item->media_thumb) !!}
+                                    {!! Form::hidden('media_fullsize', $item->media_fullsize) !!}
+                                    {!! Form::file('media_thumb', ['class' => 'form-control']) !!}
                                 </div>
                             </div>
 
@@ -75,7 +69,7 @@
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('media_date', 'Date du média') !!}
+                                {!! Form::label('media_date', 'Date du média (Cliquez sur le champ)') !!}
                                 {!! Form::date('media_date', $item->media_date, [
                                     'class'=>'form-control',
                                     'id'=>'flat-date'
@@ -85,17 +79,17 @@
 
                             <div class="form-group">
                                 {!! Form::label('categories_id', 'Catégorie :') !!}<em> ( Obligatoire ) </em>
-                                {!! Form::select('categories_id', $categories, null,[
+                                <!-- select('size', ['L' => 'Large', 'S' => 'Small'], 'S'); -->
+                                {!! Form::select('categories_id', $categories, $cat_id, [
                                     'required',
                                     'class'=>'form-control',
-                                    'placeholder' => $item->categories_id
                                     ])
                                 !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::submit('Enregistrer', ['class'=>'btn btn-primary']) !!}
-                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ url('/home/medias') }}">Annuler</a>
+                                <a class="btn btn-secondary" title="retour à la page précédente" href="{{ route('page', ['pages'  => $page]) }}">Annuler</a>
                             </div>
 
                         @endforeach

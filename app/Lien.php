@@ -44,7 +44,6 @@ class Lien extends Model
         return DB::table('links')
             ->where('id', $id)
             ->update([
-
                 'link_title'        => $datas['link_title'],
                 'link_name'         => $datas['link_name'],
                 'link'              => $datas['link'],

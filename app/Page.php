@@ -12,11 +12,11 @@ class Page extends Model
      */
     public static function getMenu($position)
     {
-
         return DB::table('pages')
             ->select('menu_name', 'url_name')
-            ->join('menus', 'pages.id', 'menus.pages_id')
+            ->join('menus', 'pages.id', '=', 'menus.pages_id')
             ->where('menu_position', '=', $position)
+            ->orderBy('menu_order', 'asc')
             ->get();
     }
 
@@ -26,6 +26,14 @@ class Page extends Model
             ->select('pages.id')
             ->where('url_name', '=', $page)
             ->get();
+    }
+
+    public static function getId($page)
+    {
+        return DB::table('pages')
+            ->select('pages.id')
+            ->where('url_name', '=', $page)
+            ->first();
     }
 
     /**
@@ -65,7 +73,8 @@ class Page extends Model
     {
 
         return DB::table('pages')
-            ->select('id','url_name', 'menu_name', 'head_title', 'text')
+            ->select('pages.id','url_name', 'menu_name', 'head_title', 'text', 'menu_order')
+            ->join('menus', 'pages.id', '=', 'menus.pages_id')
             ->where('url_name', '=', $page_name)
             ->get();
     }
@@ -83,12 +92,13 @@ class Page extends Model
     {
         return DB::table('pages')
             ->where('url_name', $page)
+            ->join('menus', 'pages.id', '=', 'menus.pages_id')
             ->update([
-                //'id'            => $data['id'],
                 'url_name'      => $data['url_name'],
                 'menu_name'     => $data['menu_name'],
                 'head_title'    => $data['head_title'],
-                'text'          => $data['text']
+                'text'          => $data['text'],
+                'menu_order'    => $data['menu_order'],
             ]);
     }
 }

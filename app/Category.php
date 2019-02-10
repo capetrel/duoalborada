@@ -17,4 +17,12 @@ class Category extends Model
             ->toArray();
     }
 
+    public static function getCategoryFromSlug($slug)
+    {
+        return DB::table('categories')
+            ->select('category_name', 'id')
+            ->where('category_slug', '=', $slug)
+            ->first();
+    }
+
 }

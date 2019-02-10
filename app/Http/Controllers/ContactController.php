@@ -29,7 +29,7 @@ class ContactController extends Controller
             });
 
         return \Redirect::route('contact')
-            ->with('message', 'Merci pour votre message.');
+            ->with('message', 'Votre message a bien été envoyé. Merci, nous y répondrons rapidement.');
 
     }
 }

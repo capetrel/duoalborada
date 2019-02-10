@@ -23,49 +23,47 @@ Route::get('sitemap', 'PagesController@sitemap');
 // route qui récupère les traductions
 Route::get('langage', 'PagesController@language');
 
-// Route pour l'authentification
+// Annule la route register
 Auth::routes(['register' => false]);
 
 // Route pour le CRUD de l'administration (contenu des pages)
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::get('/home/{pages}', 'HomeController@show')->name('home');
+Route::get('/admin/{page}', 'AdminController@show')->name('page');
 
-Route::get('/home/{page}/edit', 'HomeController@edit')->name('home');
+Route::get('/admin/{page}/edit-page', 'AdminController@edit')->name('edit-page');
 
-Route::post('/home/{page}/edit/update', 'HomeController@update')->name('home');
+Route::post('/admin/{page}/edit-page', 'AdminController@update')->name('update-page');
 
 /* CRUD for concerts */
-Route::get('/home/{page}/edit/{id}', 'ConcertsController@edit')->name('home');
+Route::get('/admin/{page}/edit-concert/{id}', 'ConcertsController@edit')->where('id', '[0-9]+')->name('edit-concert');
 
-Route::post('/home/{page}/edit/{id}', 'ConcertsController@update')->name('home');
+Route::post('/admin/{page}/edit-concert/{id}', 'ConcertsController@update')->where('id', '[0-9]+')->name('update-concert');
 
-Route::get('/home/{page}/add/concert', 'ConcertsController@form')->name('home');
+Route::get('/admin/{page}/add/concert', 'ConcertsController@form')->name('add-concert');
 
-Route::post('/home/{page}/add/concert/save', 'ConcertsController@add')->name('home');
+Route::post('/admin/{page}/add/concert', 'ConcertsController@add')->name('save-concert');
 
-Route::post('/home/{page}/del/concert/{id}', 'ConcertsController@del')->name('home');
+Route::post('/admin/{page}/del/concert/{id}', 'ConcertsController@del')->where('id', '[0-9]+')->name('del-concert');
 
 /* CRUD for medias */
-Route::get('/home/{page}/edit-media/{id}', 'MediasController@edit')->name('home');
+Route::get('/admin/{page}/edit-media/{id}', 'MediasController@edit')->where('id', '[0-9]+')->name('edit-media');
 
-Route::post('/home/{page}/edit-media/{id}', 'MediasController@update')->name('home');
+Route::post('/admin/{page}/edit-media/{id}', 'MediasController@update')->where('id', '[0-9]+')->name('update-media');
 
-Route::post('/home/{page}/edit-media/{id}/image', 'FileController@postResizeImage')->name('home');
+Route::get('/admin/{page}/add/media/{cat}', 'MediasController@form')->name('add-media');
 
-Route::get('/home/{page}/add/media', 'MediasController@form')->name('home');
+Route::post('/admin/{page}/add/media/{cat}', 'MediasController@add')->name('save-media');
 
-Route::post('/home/{page}/add/media/save', 'MediasController@add')->name('home');
-
-Route::post('/home/{page}/del/media/{id}', 'MediasController@del')->name('home');
+Route::post('/admin/{page}/del/media/{id}', 'MediasController@del')->where('id', '[0-9]+')->name('del-media');
 
 /* CRUD for links */
-Route::get('/home/{page}/edit-link/{id}', 'LinksController@edit')->name('home');
+Route::get('/admin/{page}/edit-link/{id}', 'LinksController@edit')->where('id', '[0-9]+')->name('edit-link');
 
-Route::post('/home/{page}/edit-link/{id}', 'LinksController@update')->name('home');
+Route::post('/admin/{page}/edit-link/{id}', 'LinksController@update')->where('id', '[0-9]+')->name('update-link');
 
-Route::get('/home/{page}/add/link', 'LinksController@form')->name('home');
+Route::get('/admin/{page}/add/link', 'LinksController@form')->name('add-link');
 
-Route::post('/home/{page}/add/link/save', 'LinksController@add')->name('home');
+Route::post('/admin/{page}/add/link', 'LinksController@add')->name('save-link');
 
-Route::post('/home/{page}/del/link/{id}', 'LinksController@del')->name('home');
+Route::post('/admin/{page}/del/link/{id}', 'LinksController@del')->where('id', '[0-9]+')->name('del-link');

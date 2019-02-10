@@ -76,7 +76,7 @@ return [
     'max'                  => [
         'numeric' => 'La valeur de :attribute ne peut être supérieure à :max.',
         'file'    => 'La taille du fichier de :attribute ne peut pas dépasser :max kilo-octets.',
-        'string'  => 'Le texte de :attribute ne peut contenir plus de :max caractères.',
+        'string'  => 'Le champ de :attribute ne peut contenir plus de :max caractères.',
         'array'   => 'Le tableau :attribute ne peut contenir plus de :max éléments.',
     ],
     'mimes'                => 'Le champ :attribute doit être un fichier de type : :values.',
@@ -103,7 +103,7 @@ return [
     'size'                 => [
         'numeric' => 'La valeur de :attribute doit être :size.',
         'file'    => 'La taille du fichier de :attribute doit être de :size kilo-octets.',
-        'string'  => 'Le texte de :attribute doit contenir :size caractères.',
+        'string'  => 'Le champ :attribute doit contenir :size caractères.',
         'array'   => 'Le tableau :attribute doit contenir :size éléments.',
     ],
     'string'               => 'Le champ :attribute doit être une chaîne de caractères.',
@@ -112,6 +112,16 @@ return [
     'uploaded'             => "Le fichier du champ :attribute n'a pu être téléversé.",
     'url'                  => "Le format de l'URL de :attribute n'est pas valide.",
     'uuid'                 => 'Le champ :attribute doit être un UUID valide',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Validation Rule Message
+    |--------------------------------------------------------------------------
+    |
+    | Message for custom rule is_slug
+    |
+    */
+    'is_slug' => 'Le :attribute doit être un "slug" (pas de majuscule et de caractères spéciaux sauf des -).',
 
     /*
     |--------------------------------------------------------------------------
@@ -172,4 +182,11 @@ return [
         'available'             => 'disponible',
         'size'                  => 'taille',
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Validation Google Recaptcha
+    |--------------------------------------------------------------------------
+    */
+    'recaptcha' => 'Attention ! :attribute est incorrecte !',
 ];
