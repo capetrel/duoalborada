@@ -89,7 +89,7 @@ function setParams(selector) {
         startIndex: 0,
         draggable: true,
         threshold: 20,
-        loop: true,
+        loop: false,
         rtl: false
     };
 }

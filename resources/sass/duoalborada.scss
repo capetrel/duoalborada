@@ -135,6 +135,7 @@ a:hover {
     transition: margin-left 0.5s;
     width: 65vw;
 }
+
 .bg-menu {
     background: $url_40 no-repeat top left;
     background-size: cover;
@@ -429,7 +430,7 @@ select.input-control[size], select.input-control[multiple] {
     display: none;
     position: fixed;
     z-index: 100;
-    padding-top: 14vh;
+    padding-top: 5vh;
     left: 0;
     top: 0;
     width: 100%;
@@ -442,14 +443,14 @@ select.input-control[size], select.input-control[multiple] {
 .modal-content {
     margin: auto;
     display: block;
-    width: 25%;
+    width: 35%;
     max-width: 77vw;
 }
 
 .close {
     position: absolute;
-    top: 8vh;
-    left: 11vw;
+    top: 2vh;
+    right: 25vw;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
