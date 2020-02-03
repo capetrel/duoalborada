@@ -1,3 +1,12 @@
+# Duoalborada's website
+
+This site is based on Laravel (see below).
+There is a backoffice for manage pages content and  custom content (portfolio, concerts, links ...
+
+## TODO
+- Update Laravel version
+- Add js to laravel mix
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
