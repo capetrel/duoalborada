@@ -1,7 +1,8 @@
 # Duoalborada's website
 
 This site is based on Laravel (see below).
-There is a backoffice for manage pages content and  custom content (portfolio, concerts, links ...
+There is a backoffice for manage pages content and custom content (portfolio, concerts, links ...
+Images format (thumbs and original size) are manage during the upload, and video thumbs has watermarks on upload.
 
 ## TODO
 - Update Laravel version
